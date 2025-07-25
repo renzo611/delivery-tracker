@@ -1,4 +1,5 @@
-import { Column, CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, ManyToMany, PrimaryColumn, UpdateDateColumn } from "typeorm";
+import { User } from "./user.entity";
 
 @Entity('role')
 export class Role {
@@ -13,4 +14,11 @@ export class Role {
 
     @UpdateDateColumn({ type: 'datetime', name:'last_updated'})
     last_updated: Date
+
+    @ManyToMany(
+        () => User,
+        user => user.roles,
+        {onDelete: 'NO ACTION', onUpdate: 'NO ACTION',},
+    )
+    users?: User[];
 }

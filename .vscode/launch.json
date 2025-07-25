@@ -1,0 +1,27 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Debug NestJS",
+        "runtimeExecutable": "node",
+        "runtimeArgs": [
+          "--nolazy",
+          "--inspect-brk=9229",
+          "./node_modules/@nestjs/cli/bin/nest.js",
+          "start"
+        ],
+        "skipFiles": [
+          "<node_internals>/**"
+        ],
+        "sourceMaps": true,
+        "env": {
+          "NODE_ENV": "development"
+        },
+        "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen"
+      }
+    ]
+  }
+  
