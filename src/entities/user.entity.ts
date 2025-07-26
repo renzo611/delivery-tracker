@@ -33,10 +33,10 @@ export class User {
     @Column({ type: 'varchar', nullable: false, length:255})
     second_address: string
 
-    @CreateDateColumn({ name: 'created_at', type: 'datetime'})
+    @CreateDateColumn({ name: 'created_at', type: 'timestamp'})
     created_at: Date
 
-    @UpdateDateColumn({ type: 'datetime', name:'last_updated'})
+    @UpdateDateColumn({ type: 'timestamp', name:'last_updated'})
     last_updated: Date
 
     @ManyToMany(
@@ -44,7 +44,7 @@ export class User {
         role => role.users,
         {onDelete: 'NO ACTION', onUpdate: 'NO ACTION'})
         @JoinTable({
-            name: 'student_course',
+            name: 'user_role',
             joinColumn: {
             name: 'user_id',
             referencedColumnName: 'id',

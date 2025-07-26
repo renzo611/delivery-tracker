@@ -3,16 +3,16 @@ import { User } from "./user.entity";
 
 @Entity('role')
 export class Role {
-    @PrimaryColumn({ type: 'number'})    
+    @PrimaryColumn({ type: 'int'})    
     id: number
 
     @Column({ name: 'role_name', length: 50, type: 'varchar' })
     role_name: string
 
-    @CreateDateColumn({ name: 'created_at', type: 'datetime'})
+    @CreateDateColumn({ name: 'created_at', type: 'timestamp'})
     created_at: Date
 
-    @UpdateDateColumn({ type: 'datetime', name:'last_updated'})
+    @UpdateDateColumn({ type: 'timestamp', name:'last_updated'})
     last_updated: Date
 
     @ManyToMany(
